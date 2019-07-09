@@ -1,0 +1,16 @@
+{
+    "name": "masorin/my.lo",
+    "description": "test project",
+    "authors": [
+        {
+            "name": "'Roman'",
+            "email": "masorinwork@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Application\\": "src"
+        }
+    },
+    "require": {}
+}
