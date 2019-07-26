@@ -4,13 +4,13 @@ namespace Application\Test;
 
 /**
  * Test class
- *
- * @author Roman
  */
 class Test
 {
 
     /**
+     * Test method
+     * 
      * @return string test string
      */
     static function init()
