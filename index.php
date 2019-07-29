@@ -12,6 +12,8 @@ use Mr\Patterns\Adapter\WriterLogFile as WriterLogFile;
 use Mr\Patterns\Adapter\DataBase;
 use Mr\Patterns\Factory\FacebookPoster;
 use Mr\Patterns\Builder\MySqlQueryBuilder;
+use Mr\Patterns\Observer\Customer as Customer;
+use Mr\Patterns\Observer\Product as Product;
 use Mr\Patterns\Prototype\Author;
 use Mr\Patterns\Prototype\Page;
 use Mr\Patterns\Singleton\Singleton;
@@ -65,10 +67,21 @@ use Mr\Patterns\Singleton\Singleton;
 #######################################################
 # adapter
 
-$logger = new WriterLog();
-$logger->addLogger(new WriterLogFile());
-$logger->addLogger(new WriterLogDataBase());
+//$logger = new WriterLog();
+//$logger->addLogger(new WriterLogFile());
+//$logger->addLogger(new WriterLogDataBase());
+//
+//$logger->write('first text');
+//$logger->write('second text');
 
-$logger->write('first text');
-$logger->write('second text');
+#######################################################
+# observer
 
+$product = new Product('Asus');
+$customerFirst = new Customer('Roman');
+$customerSecond = new Customer('Igor');
+
+$product->attachObserver($customerFirst);
+$product->attachObserver($customerSecond);
+
+$product->eventPrice();
